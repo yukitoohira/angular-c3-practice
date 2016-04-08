@@ -1,0 +1,25 @@
+{
+  "name": "angular-dev-environment",
+  "description": "angular develop-environment template",
+  "main": "index.js",
+  "authors": [
+    "Ohira Yukito <yukito.ohira@f.flect.co.jp>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "angular",
+    "javascript"
+  ],
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.3"
+  }
+}
