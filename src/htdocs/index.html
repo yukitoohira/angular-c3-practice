@@ -8,14 +8,14 @@
 <body>
 <app-example></app-example>
 <p style="background-color: #00a0e9;">color</p>
-<p>ガス使用量</p>
+<p>Example1</p>
 <div ng-controller="c3chartController">
   <c3chart bindto-id="chart1">
-    <chart-column column-id="本日の使用量"
+    <chart-column column-id="本日"
                   column-values="30,200,100,400,150,250"
                   column-color="#0070d2"
                   column-type="area"/>
-    <chart-column column-id="昨年同日の使用量"
+    <chart-column column-id="昨日"
                   column-values="50,20,320,40,15,25"
                   column-color="gray"
                   column-type="line"/>
@@ -46,17 +46,10 @@
   <chart-grid show-x="false" show-y="true"/>
 
 </c3chart>
-<div ng-controller="GenericChartCtrl">
-  <div google-chart chart="chartObject1" style="height:600px; width:100%;"></div>
-</div>
-<div ng-controller="GenericChartCtrl">
-  <div google-chart chart="chartObject2" style="height:600px; width:100%;"></div>
-</div>
 <script src="lib/d3/d3.min.js"></script>
 <script src="lib/c3/c3.min.js"></script>
 <script src="lib/angular/angular.js"></script>
 <script src="lib/c3-angular/c3-angular.min.js"></script>
-<script src="lib/angular-google-chart/ng-google-chart.min.js"></script>
 <script src="bundle.js"></script>
 <script src="templates.js"></script>
 </body>
