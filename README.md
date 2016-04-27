@@ -1,5 +1,5 @@
-# angular-dev-env
-angularjsのプロジェクトを新しく作成する場合のボイラープレート
+# angular-c3-env
+angularjs-c3 練習用リポジトリ
 
 ## usage
 ```
