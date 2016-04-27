@@ -21,5 +21,9 @@
   ],
   "dependencies": {
     "angular": "^1.5.3"
+  },
+  "devDependencies": {
+    "c3-angular": "^1.2.0",
+    "angular-google-chart": "^0.1.0"
   }
 }

@@ -34,11 +34,12 @@ gulp.task('angular', ()=> {
 
 gulp.task('serve', ()=> {
   browser.init({
+    port:5543,
     server: {
       baseDir: "./dist/"
     }
   });
-  gulp.watch(['src/scripts/**/*.js', 'src/htdocs/**/*.html', 'src/templates/**/*.html'], ["all-reload"]);
+  gulp.watch(['src/script/**/*.js', 'src/htdocs/**/*.html', 'src/templates/**/*.html'], ["all-reload"]);
 });
 
 gulp.task('all-reload', function (callback) {
