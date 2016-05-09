@@ -12,11 +12,11 @@
 <div ng-controller="c3chartController">
   <c3chart bindto-id="chart1">
     <chart-column column-id="本日"
-                  column-values="30,200,100,400,150,250"
+                  column-values="{{todayData}}"
                   column-color="#0070d2"
                   column-type="area"/>
     <chart-column column-id="昨日"
-                  column-values="50,20,320,40,15,25"
+                  column-values="{{yesterdayData}}"
                   column-color="gray"
                   column-type="line"/>
     <chart-axis-x>
@@ -26,7 +26,9 @@
                   column-values="134,21,117,21,115,26"
                   column-type="spline"/> -->
     <chart-grid show-x="false" show-y="true"/>
+    <!--
     <chart-tooltip show-tooltip="true" hideTooltipTitle="false" group-tooltip="false" title-format-function="titleFunc" name-format-function="nameFunc" value-format-function="valueFunc"></chart-tooltip>
+    -->
 
   </c3chart>
 </div>
