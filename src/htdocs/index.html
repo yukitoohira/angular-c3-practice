@@ -32,24 +32,28 @@
 
   </c3chart>
 </div>
-<p>気温</p>
-<c3chart bindto-id="chart2">
-  <chart-column column-id="最高気温"
-                column-values="24,28,30,26,26,25"
-                column-color="red"
-                column-type="line"/>
-  <chart-column column-id="平均気温"
-                column-values="21,24,28,24,25,23"
-                column-color="gray"
-                column-type="line"/>
-  <chart-column column-id="最低気温"
-                column-values="18,22,25,22,22,20"
-                column-color="blue"
-                column-type="line"/>
-  <chart-grid show-x="false" show-y="true"/>
-  <chart-tooltip show-tooltip="true" hide-tooltip-title="true" group-tooltip="false"></chart-tooltip>
+<div ng-controller="c3chartController">
+  <p>気温</p>
+  <c3chart bindto-id="chart2">
+    <chart-column column-id="最高気温"
+                  column-values="{{maxKion}}"
+                  column-color="red"
+                  column-type="line"/>
+    <chart-column column-id="平均気温"
+                  column-values="{{aveKion}}"
+                  column-color="gray"
+                  column-type="line"/>
+    <chart-column column-id="最低気温"
+                  column-values="{{minKion}}"
+                  column-color="blue"
+                  column-type="line"/>
+    <chart-axis-x>
+      <chart-axis-x-tick tick-format-function="tickFunc"/>
+    </chart-axis-x>
+    <chart-grid show-x="false" show-y="true"/>
 
-</c3chart>
+  </c3chart>
+</div>
 <script src="lib/d3/d3.min.js"></script>
 <script src="lib/c3/c3.min.js"></script>
 <script src="lib/angular/angular.js"></script>

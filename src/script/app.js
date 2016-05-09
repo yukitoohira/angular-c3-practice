@@ -26,12 +26,35 @@ angular.module('app')
 
     $scope.todayData = mockData();
 
+    $scope.maxKion = (function () {
+      var result = [];
+      for (var i = 0; i < 47; i++) {
+        result[i] = Math.round(Math.random() * 10 + 20);
+      }
+      return result.join();
+    })();
+
+    $scope.aveKion =  (function () {
+      var result = [];
+      for (var i = 0; i < 47; i++) {
+        result[i] = Math.round(Math.random() * 6 + 13);
+      }
+      return result.join();
+    })();
+
+    $scope.minKion =  (function () {
+      var result = [];
+      for (var i = 0; i < 47; i++) {
+        result[i] = Math.round(Math.random() * 8 + 5);
+      }
+      return result.join();
+    })();
+
     function mockData() {
       var result = [];
       for (var i = 0; i < 47; i++) {
         result[i] = Math.round(Math.random() * 100 + 50);
       }
-      console.log(result.join());
       return result.join();
     }
   });
