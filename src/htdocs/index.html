@@ -10,7 +10,7 @@
 <p style="background-color: #00a0e9;">color</p>
 <p>Example1</p>
 <div ng-controller="c3chartController">
-  <c3chart bindto-id="chart1">
+  <c3chart bindto-id="chart1" callback-function="chartCallbk">
     <chart-column column-id="本日"
                   column-values="{{todayData}}"
                   column-color="#0070d2"
@@ -18,7 +18,7 @@
     <chart-column column-id="昨日"
                   column-values="{{yesterdayData}}"
                   column-color="gray"
-                  column-type="line"/>
+                  column-type="area"/>
     <chart-axis-x>
       <chart-axis-x-tick tick-format-function="tickFunc"/>
     </chart-axis-x>
@@ -26,6 +26,7 @@
                   column-values="134,21,117,21,115,26"
                   column-type="spline"/> -->
     <chart-grid show-x="false" show-y="true"/>
+    <chart-line connect-null="false"></chart-line>
     <!--
     <chart-tooltip show-tooltip="true" hideTooltipTitle="false" group-tooltip="false" title-format-function="titleFunc" name-format-function="nameFunc" value-format-function="valueFunc"></chart-tooltip>
     -->
@@ -51,14 +52,20 @@
       <chart-axis-x-tick tick-format-function="tickFunc"/>
     </chart-axis-x>
     <chart-grid show-x="false" show-y="true"/>
+    <chart-line connect-null="false"></chart-line>
 
   </c3chart>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.js"></script>
 <script src="lib/d3/d3.min.js"></script>
 <script src="lib/c3/c3.min.js"></script>
 <script src="lib/angular/angular.js"></script>
-<script src="lib/c3-angular/c3-angular.min.js"></script>
+<script src="lib/c3-angular/c3-angular.js"></script>
 <script src="bundle.js"></script>
 <script src="templates.js"></script>
+<script>
+
+
+</script>
 </body>
 </html>

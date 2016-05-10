@@ -2,6 +2,20 @@ angular.module('app', ['gridshore.c3js.chart']);
 
 angular.module('app')
   .controller('c3chartController', function ($scope) {
+    $scope.chartCallbk = function (chartObj) {
+      //console.log(chartObj);
+      var dataAry = chartObj.data.values('本日');
+      var idx = dataAry.findIndex(function (elem, index) {
+        return elem === Math.max.apply(null, dataAry);
+      });
+      console.log(idx); //n+1番目の要素が最大なので
+      console.log(Math.max.apply(null, dataAry));
+
+      angular.element(angular.element('#chart1 .c3-circles-本日 > circle')[idx]).css('fill','red');
+
+      console.log('callback called!');
+    };
+
     $scope.tickFunc = function (d) {
       var timeAry = ['0:00', '0:30', '1:00', '1:30', '2:00', '2:30', '3:00', '3:30', '4:00', '4:30', '5:00', '5:30',
         '6:30', '7:00', '7:30', '8:00', '8:30', '9:00', '9:30', '10:00', '10:30', '11:00', '11:30', '12:00',
@@ -29,12 +43,16 @@ angular.module('app')
     $scope.maxKion = (function () {
       var result = [];
       for (var i = 0; i < 47; i++) {
+        if (20 < i && i < 30) {
+          result[i] = "null";
+          continue;
+        }
         result[i] = Math.round(Math.random() * 10 + 20);
       }
       return result.join();
     })();
 
-    $scope.aveKion =  (function () {
+    $scope.aveKion = (function () {
       var result = [];
       for (var i = 0; i < 47; i++) {
         result[i] = Math.round(Math.random() * 6 + 13);
@@ -42,7 +60,8 @@ angular.module('app')
       return result.join();
     })();
 
-    $scope.minKion =  (function () {
+
+    $scope.minKion = (function () {
       var result = [];
       for (var i = 0; i < 47; i++) {
         result[i] = Math.round(Math.random() * 8 + 5);
@@ -53,6 +72,10 @@ angular.module('app')
     function mockData() {
       var result = [];
       for (var i = 0; i < 47; i++) {
+        if (20 < i && i < 30) {
+          result[i] = "null";
+          continue;
+        }
         result[i] = Math.round(Math.random() * 100 + 50);
       }
       return result.join();
