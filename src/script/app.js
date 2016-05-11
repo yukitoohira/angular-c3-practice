@@ -3,18 +3,29 @@ angular.module('app', ['gridshore.c3js.chart']);
 angular.module('app')
   .controller('c3chartController', function ($scope) {
     $scope.chartCallbk = function (chartObj) {
-      //console.log(chartObj);
       var dataAry = chartObj.data.values('本日');
       var idx = dataAry.findIndex(function (elem, index) {
         return elem === Math.max.apply(null, dataAry);
       });
-      console.log(idx); //n+1番目の要素が最大なので
-      console.log(Math.max.apply(null, dataAry));
 
-      angular.element(angular.element('#chart1 .c3-circles-本日 > circle')[idx]).css('fill','red');
+      angular.element(angular.element('#chart1 .c3-circles-本日 > circle')[idx]).css('fill', 'red');
+      for (var i = 1; i < 4; i++) {
+        decorateChart(i, resolveColor(idx, i));
 
+      }
       console.log('callback called!');
     };
+
+    function decorateChart(idx, color) {
+      angular.element(angular.element('#chart1 .c3-circles-本日 > circle')[idx]).css('fill', 'white');
+      angular.element(angular.element('#chart1 .c3-circles-本日 > circle')[idx]).css('stroke', color);
+      angular.element(angular.element('#chart1 .c3-circles-本日 > circle')[idx]).css('stroke-width', '2px');
+      angular.element(angular.element('#chart1 .c3-circles-本日 > circle')[idx]).css('stroke-dasharray', 2);
+    }
+
+    function resolveColor(maxIdx, targetIdx) {
+      return maxIdx === targetIdx ? 'red' : '#0070d2';
+    }
 
     $scope.tickFunc = function (d) {
       var timeAry = ['0:00', '0:30', '1:00', '1:30', '2:00', '2:30', '3:00', '3:30', '4:00', '4:30', '5:00', '5:30',
@@ -74,6 +85,10 @@ angular.module('app')
       for (var i = 0; i < 47; i++) {
         if (20 < i && i < 30) {
           result[i] = "null";
+          continue;
+        }
+        if (35 < i && i < 40) {
+          result[i] = 0;
           continue;
         }
         result[i] = Math.round(Math.random() * 100 + 50);
